@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -8,11 +8,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import useToggle from './hooks/useToggle';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import EditTodoForm from './EditTodoForm';
-import { TodosContext } from './contexts/todos.context';
+import { DispatchContext } from './contexts/todos.context';
 
 const Todo = props => {
 	const { task, id, completed } = props;
-	const { dispatch } = useContext(TodosContext);
+	const dispatch = useContext(DispatchContext);
 	const [ isEditing, toggle ] = useToggle();
 	return (
 		<ListItem style={{ height: '64px' }}>
@@ -48,4 +48,4 @@ const Todo = props => {
 	);
 };
 
-export default Todo;
+export default memo(Todo);
