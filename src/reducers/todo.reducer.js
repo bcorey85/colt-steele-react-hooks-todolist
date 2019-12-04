@@ -17,12 +17,12 @@ const reducer = (state, action) => {
 						: todo
 			);
 		case 'EDIT':
-			return state.map(
-				todo =>
-					todo.id === action.state
-						? { ...todo, task: action.newTask }
-						: todo
-			);
+			console.log(action);
+			return state.map(todo => {
+				return todo.id === action.id
+					? { ...todo, task: action.newTask }
+					: todo;
+			});
 		default:
 			return state;
 	}

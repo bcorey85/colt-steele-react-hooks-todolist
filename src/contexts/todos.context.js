@@ -1,6 +1,5 @@
 import React, { createContext, useReducer } from 'react';
 import todosReducer from '../reducers/todo.reducer.js';
-import useTodoState from '../hooks/useTodoState';
 
 const defaultTodos = [
 	{ id: 1, task: 'Mow the lawn with goats', completed: false },
